@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malcolm's Barber Shop, Broadstairs</title>
+<meta name="description" content="Traditional and modern barbering on Broadstairs High Street since 1972. Men's and children's cuts, beard trims and hot towel shaves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a shopfront — stripe-trimmed sign up top, then a two-column ledger of services and hours. Single dark-navy theme, like a painted shop fascia. */
+  --ink: #0f1a2b;        /* fascia navy */
+  --panel: #17243a;      /* raised navy */
+  --paper: #f3f0e8;      /* signwriting off-white */
+  --muted: #a9b3c4;      /* faded lettering */
+  --red: #c8322f;        /* barber-pole red */
+  --gold: #d9b45a;       /* gilt trim */
+  --display: "Bebas Neue", "Oswald", Impact, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --body: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+.demo-note {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: .875rem;
+  text-align: center;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+.stripe {
+  height: 14px;
+  background: repeating-linear-gradient(-45deg, var(--red) 0 14px, var(--paper) 14px 28px, #24477a 28px 42px, var(--paper) 42px 56px);
+}
+
+header.hero { padding: 56px 0 48px; }
+.hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+.est { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 1.125rem; margin: 0 0 4px; }
+h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  line-height: .9;
+  letter-spacing: .01em;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede { font-family: var(--serif); font-size: 1.25rem; color: var(--paper); max-width: 34ch; margin: 18px 0 26px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px; border-radius: 4px; font-weight: 600; text-decoration: none;
+  border: 2px solid var(--paper);
+}
+.btn-primary { background: var(--red); border-color: var(--red); color: #fff; }
+.btn-primary:hover { background: #ad2825; border-color: #ad2825; }
+.btn-ghost:hover { background: var(--paper); color: var(--ink); }
+
+.rating-card {
+  background: var(--panel); border: 1px solid #2a3a57; border-radius: 6px; padding: 22px 24px;
+}
+.rating-card .score { font-family: var(--display); font-size: 4rem; line-height: 1; color: var(--gold); }
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 1.1rem; }
+.rating-card p { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
+.rating-card .phone { margin-top: 16px; padding-top: 14px; border-top: 1px solid #2a3a57; color: var(--paper); font-size: 1.05rem; }
+
+section { padding: 56px 0; border-top: 1px solid #22314b; }
+h2 {
+  font-family: var(--display); font-weight: 400; letter-spacing: .03em;
+  font-size: 2.6rem; line-height: 1; margin: 0 0 22px; text-wrap: balance;
+}
+h2 span { color: var(--red); }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.services { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.services li {
+  display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+  padding: 14px 0; border-bottom: 1px dashed #34466a;
+}
+.services strong { font-weight: 600; font-size: 1.1rem; }
+.services small { display: block; color: var(--muted); font-size: .92rem; }
+.services .tag { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: .95rem; white-space: nowrap; }
+.extras { margin-top: 18px; color: var(--muted); font-size: .95rem; max-width: 60ch; }
+
+table.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+table.hours td { padding: 11px 0; border-bottom: 1px dashed #34466a; }
+table.hours td:last-child { text-align: right; }
+table.hours tr.today td { color: var(--gold); font-weight: 600; }
+table.hours tr.today td:first-child::after { content: " · today"; font-weight: 400; font-style: italic; font-family: var(--serif); }
+.closed { color: var(--muted); }
+
+.story p { max-width: 62ch; margin: 0 0 14px; font-family: var(--serif); font-size: 1.15rem; }
+.timeline { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; padding: 0; list-style: none; }
+.timeline li { background: var(--panel); border-left: 3px solid var(--red); padding: 10px 16px; border-radius: 0 4px 4px 0; }
+.timeline b { font-family: var(--display); font-weight: 400; font-size: 1.6rem; color: var(--gold); display: block; line-height: 1; }
+.timeline span { font-size: .92rem; color: var(--muted); }
+
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+blockquote {
+  margin: 0; background: var(--panel); border-radius: 6px; padding: 22px;
+  font-family: var(--serif); font-size: 1.08rem; line-height: 1.5;
+  border-top: 3px solid var(--gold);
+}
+blockquote footer { margin-top: 12px; font-family: var(--body); font-size: .85rem; color: var(--muted); }
+
+.visit { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.address { font-family: var(--serif); font-size: 1.3rem; line-height: 1.45; margin: 0 0 18px; }
+.visit .note { color: var(--muted); max-width: 52ch; }
+
+footer.site { padding: 28px 0 40px; color: var(--muted); font-size: .9rem; border-top: 1px solid #22314b; }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 820px) {
+  .hero-grid, .two, .visit { grid-template-columns: 1fr; gap: 32px; }
+  .reviews { grid-template-columns: 1fr; }
+  header.hero { padding: 40px 0 36px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="demo-note">Website concept prepared for Malcolm's Barber Shop by Alfie Rowland. This is a preview, not the shop's official site.</div>
+<div class="stripe" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="est">Broadstairs High Street, since 1972</p>
+      <h1>Malcolm's<br>Barber Shop</h1>
+      <p class="lede">Proper haircuts, beard trims and hot towel shaves, from barbers who learned the trade in this very shop.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+441843865230">Call 01843 865230</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Malcolm%27s+Barber+Shop&amp;query_place_id=ChIJwywJL5ZU2UcROQRsyTV09fI">Get directions</a>
+      </div>
+    </div>
+    <aside class="rating-card" aria-label="Customer rating">
+      <div class="score">4.8</div>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <p>From more than 200 Google reviews</p>
+      <div class="phone">91 High Street, Broadstairs CT10 1NQ<br>Book ahead or walk in</div>
+    </aside>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap two">
+    <div>
+      <h2>What we <span>do</span></h2>
+      <ul class="services">
+        <li><div><strong>Men's haircut</strong><small>Classic or modern, clippers or scissors</small></div><span class="tag">Book or walk in</span></li>
+        <li><div><strong>Children's haircut</strong><small>Patient with first cuts and nervous little ones</small></div><span class="tag">All ages</span></li>
+        <li><div><strong>Beard trim</strong><small>Shaped, lined up and tidied</small></div><span class="tag">Add to any cut</span></li>
+        <li><div><strong>Hot towel shave</strong><small>The traditional wet shave</small></div><span class="tag">A proper treat</span></li>
+        <li><div><strong>Head shave</strong><small>Clean and smooth</small></div><span class="tag">Quick visit</span></li>
+      </ul>
+      <p class="extras">Free styling with wax after your cut if you'd like it. Ask any of the team about your style; they're happy to talk you through changes.</p>
+    </div>
+    <div>
+      <h2>Opening <span>hours</span></h2>
+      <table class="hours" aria-label="Opening hours">
+        <tbody>
+          <tr data-day="1"><td>Monday</td><td>8:00 – 17:00</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>8:00 – 17:00</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>8:00 – 17:00</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>8:00 – 17:30</td></tr>
+          <tr data-day="5"><td>Friday</td><td>8:00 – 17:30</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>8:00 – 16:00</td></tr>
+          <tr data-day="0"><td>Sunday</td><td class="closed">Closed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap story">
+    <h2>Fifty years in the <span>chair</span></h2>
+    <p>Malcolm Cox opened the shop on 1 August 1972, three weeks before his eighteenth birthday. He started as an apprentice and ended up owning the building.</p>
+    <p>Three generations of local families have had their hair cut here. Many of today's barbers began as apprentices in the shop, so the craft has been passed down in the same chairs.</p>
+    <ul class="timeline">
+      <li><b>1972</b><span>Shop opens on the High Street</span></li>
+      <li><b>1985</b><span>Full refurbishment</span></li>
+      <li><b>2022</b><span>Fifty years in business</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2>What customers <span>say</span></h2>
+    <div class="reviews">
+      <blockquote>"Fit my 1yr old in last minute after I was cancelled on elsewhere. Very accommodating and patient with my son with his first hair cut."<footer>Google review</footer></blockquote>
+      <blockquote>"Brilliant barbers, I've had many different ones in the 5 years I've used them and every time I've been more than pleased."<footer>Google review</footer></blockquote>
+      <blockquote>"Talks me through any changes I want to make and couldn't fault the service, expertise or skills. 10/10"<footer>Google review</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap visit">
+    <div>
+      <h2>Find <span>us</span></h2>
+      <p class="address">91 High Street<br>Broadstairs<br>Kent CT10 1NQ</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+441843865230">Call 01843 865230</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Malcolm%27s+Barber+Shop&amp;query_place_id=ChIJwywJL5ZU2UcROQRsyTV09fI">Open in Google Maps</a>
+      </div>
+    </div>
+    <div>
+      <h2>Booking</h2>
+      <p class="note">You can book an appointment ahead or just turn up on the day. Give us a ring if you want a set time.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Malcolm's Barber Shop · 91 High Street, Broadstairs CT10 1NQ · 01843 865230</span>
+    <span>Concept design by Alfie Rowland</span>
+  </div>
+</footer>
+
+<script>
+  try {
+    var d = new Date().getDay();
+    var row = document.querySelector('tr[data-day="' + d + '"]');
+    if (row) row.classList.add('today');
+  } catch (e) {}
+</script>
+</body>
+</html>
